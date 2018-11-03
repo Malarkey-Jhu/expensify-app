@@ -1,22 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { removeExpense } from '../actions/expenses';
+import { Link } from 'react-router-dom';
 
-const ExpenseListItem = (props) => {
+const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => {
 
-  console.log(props)
   return (
     <div>
-      <ul>
-        <li>Description: {props.description}</li>
-        <li>Amout: {props.amount}</li>
-        <li>Created At: {props.createdAt}</li>
-        <button onClick={()=> {
-          props.dispatch(removeExpense({id: props.id}))
-        }}>Delete</button>
-      </ul>
+      <Link to={`/edit/${id}`}>
+        <h3>Description: {description}</h3>
+      </Link>
+        <p>{amount} - {createdAt}</p>
     </div>
   )
 }
 
-export default connect()(ExpenseListItem);
+export default ExpenseListItem;

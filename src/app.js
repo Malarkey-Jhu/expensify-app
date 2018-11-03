@@ -6,15 +6,16 @@ import configureStore from './store/configureStore';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses'
+// import 'react-dates/initialize'
 import 'normalize.css/normalize.css';
 import './styles/style.scss'
 
 const store = configureStore();
 
-store.subscribe(() => {
-  const state = store.getState()
-  console.log(getVisibleExpenses(state.expenses, state.filters))
-})
+// store.subscribe(() => {
+//   const state = store.getState()
+//   console.log(getVisibleExpenses(state.expenses, state.filters))
+// })
 
 store.dispatch(addExpense({description: 'Water bill', amount: 4500}))
 store.dispatch(addExpense({description: 'Gas bill', createdAt: 1000}))
