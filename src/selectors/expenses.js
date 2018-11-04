@@ -5,7 +5,7 @@ import moment from 'moment';
 // get visible expenses
 export default (expenses, {text, sortBy, startDate, endDate}) => {
   return expenses.filter(expense => {
-    //startDate不存在的話, 全部展示, 相當於沒有filter, 存在的話用moment比較日期方法
+    //startDate不存在的話, 全部展示, 相當於沒有filter, 存在的話用 moment 比較日期方法
     const createdAtMoment = moment(expense.createdAt)
     let startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true
     let endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true
