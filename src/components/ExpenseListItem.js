@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => {
+export const ExpenseListItem = ({id, description, amount, createdAt, dispatch}) => {
 
   return (
     <div>
